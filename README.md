@@ -1,6 +1,6 @@
 # Grid Club
 
-A retro-inspired, responsive Tic-Tac-Toe game built with React, TypeScript, and Vite.
+A retro-inspired, responsive Tic-Tac-Toe game built with React, TypeScript, Vite, and Zustand.
 
 ## Play
 
@@ -16,3 +16,16 @@ npm run dev
 ```
 
 Run `npm run build` to type-check and create the production build, or `npm run lint` to check the code.
+
+## Project structure
+
+```text
+src/
+  components/   Reusable page and gameplay UI components
+  store/        Zustand game and settings state
+  types/        Shared TypeScript game types
+  utils/        Game rules and AI move selection
+  App.tsx       Page composition
+  App.css       App and component styles
+  index.css     Global styles and theme tokens
+```
