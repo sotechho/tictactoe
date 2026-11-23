@@ -1,5 +1,5 @@
-import { useGameStore } from '../store/gameStore'
-import { playTapSound } from '../utils/playTapSound'
+import { useGameStore } from '@/store/gameStore'
+import { playTapSound } from '@/utils/playTapSound'
 
 export function GameBoard() {
   const board = useGameStore((state) => state.board)

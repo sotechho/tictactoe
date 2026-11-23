@@ -1,6 +1,6 @@
 import { Cpu, UsersRound } from 'lucide-react'
-import { useGameStore } from '../store/gameStore'
-import type { Difficulty, GameMode } from '../types/game'
+import { useGameStore } from '@/store/gameStore'
+import type { Difficulty, GameMode } from '@/types/game'
 
 export function GameModeSelector() {
   const mode = useGameStore((state) => state.mode)

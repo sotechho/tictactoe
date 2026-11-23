@@ -1,7 +1,15 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { getWinningLine } from '../utils/gameLogic'
-import type { Board, Difficulty, GameMode, Mark, Outcome, ScoreboardStats, Theme } from '../types/game'
+import { getWinningLine } from '@/utils/gameLogic'
+import type {
+  Board,
+  Difficulty,
+  GameMode,
+  Mark,
+  Outcome,
+  ScoreboardStats,
+  Theme,
+} from '@/types/game'
 
 const createEmptyBoard = (): Board => Array(9).fill(null)
 
@@ -42,7 +50,8 @@ export const useGameStore = create<GameStore>()(
           state.board[index] !== null ||
           state.outcome ||
           mark !== state.nextPlayer
-        ) return false
+        )
+          return false
 
         const board = [...state.board]
         board[index] = mark
@@ -67,28 +76,31 @@ export const useGameStore = create<GameStore>()(
         return true
       },
 
-      resetRound: () => set({
-        board: createEmptyBoard(),
-        nextPlayer: 'X',
-        outcome: null,
-        winningLine: [],
-      }),
+      resetRound: () =>
+        set({
+          board: createEmptyBoard(),
+          nextPlayer: 'X',
+          outcome: null,
+          winningLine: [],
+        }),
 
-      setMode: (mode) => set({
-        mode,
-        board: createEmptyBoard(),
-        nextPlayer: 'X',
-        outcome: null,
-        winningLine: [],
-      }),
+      setMode: (mode) =>
+        set({
+          mode,
+          board: createEmptyBoard(),
+          nextPlayer: 'X',
+          outcome: null,
+          winningLine: [],
+        }),
 
-      setDifficulty: (difficulty) => set({
-        difficulty,
-        board: createEmptyBoard(),
-        nextPlayer: 'X',
-        outcome: null,
-        winningLine: [],
-      }),
+      setDifficulty: (difficulty) =>
+        set({
+          difficulty,
+          board: createEmptyBoard(),
+          nextPlayer: 'X',
+          outcome: null,
+          winningLine: [],
+        }),
 
       toggleTheme: () => set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
     }),

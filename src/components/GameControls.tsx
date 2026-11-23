@@ -1,5 +1,5 @@
 import { ArrowRight, RotateCcw } from 'lucide-react'
-import { useGameStore } from '../store/gameStore'
+import { useGameStore } from '@/store/gameStore'
 
 export function GameControls() {
   const outcome = useGameStore((state) => state.outcome)

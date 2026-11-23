@@ -1,4 +1,4 @@
-import { useGameStore } from '../store/gameStore'
+import { useGameStore } from '@/store/gameStore'
 
 export function PlayerStatus() {
   const nextPlayer = useGameStore((state) => state.nextPlayer)
@@ -11,7 +11,9 @@ export function PlayerStatus() {
     <div className="players">
       <div className={nextPlayer === 'X' && !outcome ? 'player active-player' : 'player'}>
         <span className="player-token x-token">X</span>
-        <span className="player-label">YOU <small>PLAYER 1</small></span>
+        <span className="player-label">
+          YOU <small>PLAYER 1</small>
+        </span>
       </div>
       <div className="vs-badge">VS</div>
       <div className={nextPlayer === 'O' && !outcome ? 'player active-player' : 'player'}>

@@ -1,9 +1,9 @@
-import { Footer } from './components/Footer'
-import { GamePlayground } from './components/GamePlayground'
-import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { Scoreboard } from './components/Scoreboard'
-import './App.css'
+import { Footer } from '@/components/Footer'
+import { GamePlayground } from '@/components/GamePlayground'
+import { Header } from '@/components/Header'
+import { Hero } from '@/components/Hero'
+import { Scoreboard } from '@/components/Scoreboard'
+import '@/App.css'
 
 function App() {
   return (

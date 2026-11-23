@@ -15,7 +15,9 @@ npm install
 npm run dev
 ```
 
-Run `npm run build` to type-check and create the production build, or `npm run lint` to check the code.
+Run `npm run build` to type-check and create the production build, `npm run lint` to check the code, or `npm run preview` to serve the production build locally.
+
+Use `npm run format` to format supported files with Prettier, and `npm run format:check` to check formatting without changing files. Formatting preferences are in `.prettierrc`; generated output and binary assets are excluded in `.prettierignore`.
 
 ## Project structure
 
@@ -31,3 +33,4 @@ src/
 ```
 
 UI icons use Lucide React. Successful moves play `sounds/game-tap-2073.wav`.
+Use `@/` as the import prefix for files under `src/`; the alias is configured in Vite and TypeScript.

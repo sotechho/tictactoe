@@ -1,4 +1,4 @@
-import type { Board } from '../types/game'
+import type { Board } from '@/types/game'
 
 const WINNING_LINES = [
   [0, 1, 2],
@@ -57,7 +57,7 @@ export function getBestMove(board: Board): number {
 }
 
 export function getRandomMove(board: Board): number | undefined {
-  const availableMoves = board.flatMap((cell, index) => cell === null ? [index] : [])
+  const availableMoves = board.flatMap((cell, index) => (cell === null ? [index] : []))
   if (availableMoves.length === 0) return undefined
   return availableMoves[Math.floor(Math.random() * availableMoves.length)]
 }
