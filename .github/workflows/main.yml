@@ -1,0 +1,76 @@
+name: Build and Deploy
+run-name: ${{ github.actor }} Started GitHub Actions 🚀
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+      - '**.md'
+      - 'docs/**'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+      - '**.md'
+      - 'docs/**'
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run test
+
+  lint:
+    name: Run ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run lint
+
+  build:
+    name: RUN build artifact
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [test,lint]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-artifacts
+          path: dist/
+          retention-days: 7
