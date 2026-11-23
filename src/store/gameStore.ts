@@ -14,7 +14,7 @@ type GameStore = {
   difficulty: Difficulty
   scores: ScoreboardStats
   theme: Theme
-  playMove: (index: number, mark?: Mark) => void
+  playMove: (index: number, mark?: Mark) => boolean
   resetRound: () => void
   setMode: (mode: GameMode) => void
   setDifficulty: (difficulty: Difficulty) => void
@@ -42,7 +42,7 @@ export const useGameStore = create<GameStore>()(
           state.board[index] !== null ||
           state.outcome ||
           mark !== state.nextPlayer
-        ) return
+        ) return false
 
         const board = [...state.board]
         board[index] = mark
@@ -64,6 +64,7 @@ export const useGameStore = create<GameStore>()(
         } else {
           set({ board, nextPlayer: mark === 'X' ? 'O' : 'X' })
         }
+        return true
       },
 
       resetRound: () => set({

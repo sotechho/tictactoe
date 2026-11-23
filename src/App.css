@@ -38,26 +38,9 @@
 .brand-mark {
   width: 23px;
   height: 23px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3px;
+  flex: none;
+  color: var(--ink);
   transform: rotate(-8deg);
-}
-
-.brand-mark i {
-  display: block;
-  border: 2px solid var(--ink);
-  border-radius: 2px;
-}
-
-.brand-mark i:nth-child(2) {
-  background: var(--pink);
-  border-color: var(--pink);
-}
-
-.brand-mark i:nth-child(3) {
-  background: var(--lime);
-  border-color: var(--lime);
 }
 
 .topbar-right {
@@ -137,9 +120,8 @@
   letter-spacing: 2px;
 }
 
-.eyebrow > span {
+.eyebrow > svg {
   color: var(--pink);
-  font-size: 14px;
   vertical-align: -1px;
   margin-right: 3px;
 }
@@ -204,9 +186,10 @@
   transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 
-.mode-tab span {
+.mode-tab svg {
   margin-right: 3px;
   color: var(--pink);
+  vertical-align: -2px;
 }
 
 .mode-tab.active {
@@ -326,8 +309,9 @@
 }
 
 .turn-spark {
+  display: inline-flex;
   color: var(--lime-ink);
-  font-size: 12px;
+  line-height: 0;
 }
 
 .turn-mark {
@@ -411,6 +395,9 @@
 }
 
 .game-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   border: 0;
   background: transparent;
   font-size: 8px;
@@ -424,11 +411,8 @@
   color: var(--muted);
 }
 
-.reset-button span {
-  padding-right: 4px;
+.reset-button svg {
   color: var(--pink);
-  font-size: 13px;
-  vertical-align: -1px;
 }
 
 .rematch-button {
@@ -439,10 +423,8 @@
   animation: fade-up 180ms ease both;
 }
 
-.rematch-button span {
-  padding-left: 4px;
+.rematch-button svg {
   color: var(--lime);
-  font-size: 12px;
 }
 
 .scoreboard {
@@ -530,10 +512,10 @@
   letter-spacing: 1.05px;
 }
 
-.page-footer i {
-  padding: 0 4px;
+.page-footer svg {
+  margin: 0 4px;
   color: var(--pink);
-  font-style: normal;
+  vertical-align: -2px;
 }
 
 @keyframes mark-pop {

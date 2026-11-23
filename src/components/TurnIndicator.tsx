@@ -1,3 +1,4 @@
+import { Asterisk, Sparkles, Trophy } from 'lucide-react'
 import { useGameStore } from '../store/gameStore'
 
 export function TurnIndicator() {
@@ -16,7 +17,7 @@ export function TurnIndicator() {
   return (
     <div className={`turn-banner ${outcome ? 'game-over' : ''}`} aria-live="polite">
       <span className="turn-spark" aria-hidden="true">
-        {outcome === 'draw' ? '✳' : outcome ? '★' : '✦'}
+        {outcome === 'draw' ? <Asterisk size={13} /> : outcome ? <Trophy size={13} /> : <Sparkles size={13} />}
       </span>
       {status}
       {!outcome && <span className={`turn-mark ${nextPlayer === 'X' ? 'x-color' : 'o-color'}`}>{nextPlayer}</span>}

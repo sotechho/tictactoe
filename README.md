@@ -24,8 +24,10 @@ src/
   components/   Reusable page and gameplay UI components
   store/        Zustand game and settings state
   types/        Shared TypeScript game types
-  utils/        Game rules and AI move selection
+  utils/        Game rules, AI moves, and the bundled move sound
   App.tsx       Page composition
   App.css       App and component styles
   index.css     Global styles and theme tokens
 ```
+
+UI icons use Lucide React. Successful moves play `sounds/game-tap-2073.wav`.

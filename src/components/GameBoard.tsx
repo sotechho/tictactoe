@@ -1,4 +1,5 @@
 import { useGameStore } from '../store/gameStore'
+import { playTapSound } from '../utils/playTapSound'
 
 export function GameBoard() {
   const board = useGameStore((state) => state.board)
@@ -18,7 +19,9 @@ export function GameBoard() {
             className={`cell ${cell ? `cell-${cell.toLowerCase()}` : ''} ${isWinningCell ? 'winning-cell' : ''}`}
             key={index}
             type="button"
-            onClick={() => playMove(index)}
+            onClick={() => {
+              if (playMove(index)) playTapSound()
+            }}
             disabled={isDisabled}
             aria-label={`Row ${Math.floor(index / 3) + 1}, column ${(index % 3) + 1}${cell ? `, ${cell}` : ', empty'}`}
           >

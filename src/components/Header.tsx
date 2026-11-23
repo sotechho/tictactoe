@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { LayoutGrid, Moon, Sun } from 'lucide-react'
 import { useGameStore } from '../store/gameStore'
 
 export function Header() {
@@ -12,7 +13,7 @@ export function Header() {
   return (
     <header className="topbar">
       <a className="brand" href="/" aria-label="Grid Club home">
-        <span className="brand-mark" aria-hidden="true"><i /><i /><i /><i /></span>
+        <LayoutGrid className="brand-mark" aria-hidden="true" />
         <span>GRID<span className="brand-light">CLUB</span></span>
       </a>
       <div className="topbar-right">
@@ -23,7 +24,7 @@ export function Header() {
           onClick={toggleTheme}
           aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
         >
-          {theme === 'light' ? '☾' : '☀'}
+          {theme === 'light' ? <Moon size={16} aria-hidden="true" /> : <Sun size={16} aria-hidden="true" />}
         </button>
       </div>
     </header>

@@ -1,3 +1,4 @@
+import { Cpu, UsersRound } from 'lucide-react'
 import { useGameStore } from '../store/gameStore'
 import type { Difficulty, GameMode } from '../types/game'
 
@@ -19,7 +20,7 @@ export function GameModeSelector() {
           onClick={() => selectMode('ai')}
           aria-pressed={mode === 'ai'}
         >
-          <span aria-hidden="true">✦</span> VS COMPUTER
+          <Cpu size={12} aria-hidden="true" /> VS COMPUTER
         </button>
         <button
           type="button"
@@ -27,7 +28,7 @@ export function GameModeSelector() {
           onClick={() => selectMode('local')}
           aria-pressed={mode === 'local'}
         >
-          <span aria-hidden="true">♟</span> LOCAL 2P
+          <UsersRound size={12} aria-hidden="true" /> LOCAL 2P
         </button>
       </div>
       {mode === 'ai' && (

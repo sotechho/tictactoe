@@ -1,3 +1,4 @@
+import { ArrowRight, RotateCcw } from 'lucide-react'
 import { useGameStore } from '../store/gameStore'
 
 export function GameControls() {
@@ -7,11 +8,11 @@ export function GameControls() {
   return (
     <div className="game-actions">
       <button type="button" className="reset-button" onClick={resetRound}>
-        <span aria-hidden="true">↻</span> NEW ROUND
+        <RotateCcw size={12} aria-hidden="true" /> NEW ROUND
       </button>
       {outcome && (
         <button type="button" className="rematch-button" onClick={resetRound}>
-          REMATCH <span aria-hidden="true">→</span>
+          REMATCH <ArrowRight size={12} aria-hidden="true" />
         </button>
       )}
     </div>

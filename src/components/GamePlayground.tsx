@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { getBestMove, getRandomMove } from '../utils/gameLogic'
+import { playTapSound } from '../utils/playTapSound'
 import { useGameStore } from '../store/gameStore'
 import { GameBoard } from './GameBoard'
 import { GameControls } from './GameControls'
@@ -20,7 +21,7 @@ export function GamePlayground() {
 
     const timeout = window.setTimeout(() => {
       const move = difficulty === 'easy' ? getRandomMove(board) : getBestMove([...board])
-      if (move !== undefined) playMove(move, 'O')
+      if (move !== undefined && playMove(move, 'O')) playTapSound()
     }, 420)
 
     return () => window.clearTimeout(timeout)
