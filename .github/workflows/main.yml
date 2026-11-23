@@ -31,7 +31,7 @@ jobs:
           node-version: '22.x'
           cache: 'npm'
 
-      - run: npm ci
+      - run: npm i
       - run: npm run test
 
   lint:
@@ -47,14 +47,14 @@ jobs:
           node-version: '22.x'
           cache: 'npm'
 
-      - run: npm ci
+      - run: npm i
       - run: npm run lint
 
   build:
     name: RUN build artifact
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    needs: [test,lint]
+    needs: [test, lint]
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -65,7 +65,7 @@ jobs:
           node-version: '22.x'
           cache: 'npm'
 
-      - run: npm ci
+      - run: npm i
       - run: npm run build
 
       - name: Upload artifact
