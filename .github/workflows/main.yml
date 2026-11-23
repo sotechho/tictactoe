@@ -87,7 +87,7 @@ jobs:
       packages: write
     env:
       REGISTRY: ghcr.io
-      IMAGE_NAME: ${{ github.vars.IMAGE_NAME}}
+      IMAGE_NAME: ${{ vars.IMAGE_NAME}}
     outputs:
       image_tag: ${{ steps.set_output.outputs.image_tag }}
 
