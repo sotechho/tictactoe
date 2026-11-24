@@ -76,7 +76,7 @@ jobs:
           retention-days: 7
 
   docker:
-    name: Docker Build and Push 
+    name: Docker Build and Push
     runs-on: ubuntu-latest
     timeout-minutes: 20
     if: github.event_name != 'pull_request'
@@ -109,10 +109,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@v6
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ secrets.GHCR_USER }}/${{ env.IMAGE_NAME }}
           tags: |
             type=sha,format=long
-            
+
       - name: Build Docker image
         uses: docker/build-push-action@v7
         with:
@@ -127,7 +127,7 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@v0.36.0
         with:
-          image-ref: ghcr.io/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+          image-ref: ${{ env.REGISTRY }}/${{ secrets.GHCR_USER }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
           format: table
           exit-code: '1'
           ignore-unfixed: true
